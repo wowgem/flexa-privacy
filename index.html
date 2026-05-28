@@ -11,7 +11,6 @@
     --bg: #ffffff;
     --accent: #1f6feb;
     --rule: #e5e7eb;
-    --code-bg: #f4f4f5;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -20,7 +19,6 @@
       --bg: #0d1117;
       --accent: #58a6ff;
       --rule: #30363d;
-      --code-bg: #161b22;
     }
   }
   *, *::before, *::after { box-sizing: border-box; }
@@ -31,47 +29,28 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--fg);
     background: var(--bg);
-    line-height: 1.6;
+    line-height: 1.65;
     font-size: 17px;
   }
-  main { max-width: 760px; margin: 0 auto; }
+  main { max-width: 720px; margin: 0 auto; }
   h1 {
-    font-size: 1.95rem;
+    font-size: 1.9rem;
     margin: 0 0 0.25rem;
     letter-spacing: -0.01em;
   }
-  .meta {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin: 0 0 2rem;
-  }
-  .meta p { margin: 0.2rem 0; }
+  .meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 2rem; }
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin: 2.25rem 0 0.5rem;
     padding-bottom: 0.4rem;
     border-bottom: 1px solid var(--rule);
   }
-  h3 {
-    font-size: 1.05rem;
-    margin: 1.25rem 0 0.4rem;
-    color: var(--muted);
-    font-weight: 600;
-  }
-  p { margin: 0.65rem 0; }
+  p { margin: 0.7rem 0; }
   ul { padding-left: 1.4rem; }
-  li { margin: 0.35rem 0; }
+  li { margin: 0.3rem 0; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  code {
-    background: var(--code-bg);
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.92em;
-  }
   strong { font-weight: 600; }
-  .intro { font-size: 1.05rem; margin-top: 0.5rem; }
   footer {
     margin-top: 3rem;
     padding-top: 1.25rem;
@@ -83,143 +62,84 @@
 </head>
 <body>
 <main>
-  <h1>Flexa Privacy Policy</h1>
-  <div class="meta">
-    <p><strong>Developer:</strong> Smartpace Technologies</p>
-    <p><strong>Effective date:</strong> 28 May 2026</p>
-    <p><strong>Contact:</strong> <a href="mailto:support@flexa.app">support@flexa.app</a></p>
-  </div>
+  <h1>Flexa &mdash; Privacy Policy</h1>
+  <p class="meta"><strong>Effective:</strong> 28 May 2026</p>
 
-  <p class="intro">This Privacy Policy explains how Smartpace Technologies (&ldquo;we&rdquo;, &ldquo;us&rdquo;) handles your information when you use the Flexa Android app (package name: <code>com.flexa.app</code>), available on the Google Play Store.</p>
+  <p>Smartpace Technologies built the Flexa app as a commercial app. This SERVICE is provided by Smartpace Technologies and is intended for use as is.</p>
 
-  <p>Flexa helps independent Amazon Flex drivers manage offer searches and accept delivery blocks more efficiently. Because Flexa acts on your behalf against your own Amazon Flex account, we hold a small set of credentials and operational data needed to perform those actions. This page describes exactly what, why, and how.</p>
+  <p>This page informs visitors regarding our policies for the collection, use, and disclosure of Personal Information for anyone who decides to use our Service.</p>
 
-  <h2>Information we collect</h2>
+  <p>If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
 
-  <h3>From your Google account</h3>
+  <h2>Information Collection and Use</h2>
+
+  <p>For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to <em>email address, name, and the credentials needed to sign in to your Amazon Flex account on your behalf</em>. The information that we request will be retained by us and used as described in this privacy policy.</p>
+
+  <p>Because Flexa acts on your behalf against your own Amazon Flex account, we store:</p>
   <ul>
-    <li><strong>Email address</strong> &mdash; captured when you sign in with Google for the Flexa account itself.</li>
+    <li>Your Amazon Flex refresh token and session cookies (encrypted on our servers; never your password)</li>
+    <li>Your Amazon account identifier and region</li>
+    <li>Your filter preferences and the history of delivery blocks Flexa has accepted for you</li>
   </ul>
 
-  <h3>From your Amazon Flex account</h3>
-  <p>When you link your Amazon Flex account during onboarding, Flexa stores the credentials needed to make API requests to Amazon on your behalf:</p>
+  <p>The app uses third-party services that may collect information used to identify you:</p>
   <ul>
-    <li><strong>Amazon refresh token</strong> &mdash; an opaque token issued by Amazon&rsquo;s authentication service. Stored encrypted at rest using Fernet (AES-128-CBC + HMAC-SHA256). Used to mint short-lived access tokens for Amazon API calls.</li>
-    <li><strong>Amazon session cookies</strong> &mdash; the cookies Amazon issued during sign-in. Stored encrypted at rest in the same format. Required for some Amazon endpoints to consider the session legitimate.</li>
-    <li><strong>Amazon account identifier and region</strong> &mdash; so we can route API calls to the correct regional endpoints.</li>
-  </ul>
-  <p>We do <strong>not</strong> store your Amazon password. The refresh token is what Amazon returns after you complete the official Amazon sign-in flow inside our onboarding webview &mdash; we never see your password.</p>
-
-  <h3>Device and operational data</h3>
-  <ul>
-    <li><strong>Install-specific UUID</strong> &mdash; a stable identifier for your Flexa installation, used to associate your settings, search sessions, and accepted blocks with your account.</li>
-    <li><strong>Firebase Cloud Messaging (FCM) token</strong> &mdash; if you enable push notifications, the token Firebase issues for your device so we can notify you when a block is accepted.</li>
-    <li><strong>Android version and app version</strong> &mdash; for compatibility, crash diagnostics, and rollout decisions.</li>
-    <li><strong>Subscription state</strong> &mdash; your Google Play purchase token, product ID, status, and expiry date.</li>
+    <li>Google Play Services</li>
+    <li>Google Analytics for Firebase</li>
+    <li>Firebase Crashlytics</li>
+    <li>Firebase Cloud Messaging (push notifications)</li>
+    <li>Google Play Billing (subscription processing)</li>
+    <li>Amazon Flex API (the service Flexa interacts with on your behalf)</li>
   </ul>
 
-  <h3>Usage data we generate while you use Flexa</h3>
+  <h2>Log Data</h2>
+
+  <p>We want to inform you that whenever you use our Service, in the case of an error in the app, we collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol ("IP") address, device name, operating system version, the configuration of the app when utilising our Service, the time and date of your use of the Service, and other statistics.</p>
+
+  <h2>Cookies</h2>
+
+  <p>Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.</p>
+
+  <p>This Service does not use these &ldquo;cookies&rdquo; explicitly. However, the app may use third-party code and libraries that use &ldquo;cookies&rdquo; to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.</p>
+
+  <h2>Service Providers</h2>
+
+  <p>We may employ third-party companies and individuals due to the following reasons:</p>
   <ul>
-    <li><strong>Search sessions</strong> &mdash; start and end timestamps, how many polls ran, how many offers were observed, configured filters and warehouse preferences.</li>
-    <li><strong>Accepted blocks</strong> &mdash; the offer ID, warehouse name, pay amount, currency, scheduled start/end times, and acceptance timestamp for blocks Flexa successfully grabs on your behalf.</li>
-    <li><strong>Activity log entries</strong> &mdash; short event records used to render the in-app activity timeline. These are retained for a rolling window and then discarded.</li>
-    <li><strong>Anonymous diagnostic captures</strong> &mdash; when Amazon returns an unexpected response, we may retain a forensic record (status code, response body, request shape) to debug. These contain no personal identifiers beyond what was needed to make the call.</li>
+    <li>To facilitate our Service;</li>
+    <li>To provide the Service on our behalf;</li>
+    <li>To perform Service-related services; or</li>
+    <li>To assist us in analysing how our Service is used.</li>
   </ul>
 
-  <h3>What we do not collect</h3>
-  <p>We do <strong>not</strong> collect: your Amazon password, your phone number, your physical location, your contacts, your photos, microphone audio, payment card details, government IDs, or any data from other apps on your device.</p>
+  <p>We want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.</p>
 
-  <h2>Why we collect it</h2>
-  <ul>
-    <li><strong>Authentication</strong> &mdash; to sign you into Flexa and identify your account on subsequent launches.</li>
-    <li><strong>Acting on your behalf at Amazon</strong> &mdash; the Amazon credentials are the entire reason Flexa can search for and accept blocks for you. Without them the app cannot function.</li>
-    <li><strong>Billing</strong> &mdash; to verify and manage your subscription via Google Play.</li>
-    <li><strong>Notifications</strong> &mdash; to push you an alert when a block is accepted (optional; only if you grant notification permission).</li>
-    <li><strong>Reliability and improvement</strong> &mdash; to detect crashes, identify regressions when Amazon&rsquo;s endpoints change, and improve scan performance.</li>
-    <li><strong>Fraud prevention</strong> &mdash; to ensure one user isn&rsquo;t exploiting trial periods or referral rewards through duplicated accounts.</li>
-  </ul>
+  <h2>Security</h2>
 
-  <h2>Who we share it with</h2>
-  <p>We share data only with the third parties listed below, each acting as a processor on our behalf:</p>
-  <ul>
-    <li><strong>Amazon (Amazon.com, Inc.)</strong> &mdash; Flexa makes signed API requests to Amazon Flex endpoints using your stored credentials. Amazon receives only what is required to authenticate the request and identify the offer being accepted &mdash; the same data their official Flex app sends.</li>
-    <li><strong>Google</strong> &mdash; Firebase Authentication and Firebase Cloud Messaging (sign-in and push notifications), Google Play Billing (subscription processing), Google Play Integrity (Android attestation for fraud prevention).</li>
-    <li><strong>Apple, Inc.</strong> &mdash; our backend uses Apple App Attest as a server-side signing oracle. The attestation key material is held on our infrastructure, not derived from your device. Apple receives no per-user data from us.</li>
-    <li><strong>Our hosting provider</strong> &mdash; the cloud infrastructure where our backend runs. They host encrypted data but have no operational access to it.</li>
-  </ul>
-  <p>We do <strong>not</strong> sell your data. We do <strong>not</strong> share data with advertisers. We do <strong>not</strong> use third-party analytics SDKs.</p>
+  <p>We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. Sensitive credentials such as your Amazon Flex tokens are stored encrypted at rest, and all network traffic between the app and our servers is encrypted in transit. But remember that no method of transmission over the internet, or method of electronic storage, is 100% secure and reliable, and we cannot guarantee its absolute security.</p>
 
-  <h2>How we protect your data</h2>
-  <ul>
-    <li>All network traffic between the app, our backend, and third-party services uses HTTPS.</li>
-    <li>Amazon refresh tokens and session cookies are encrypted at rest with Fernet (a symmetric authenticated-encryption scheme); the encryption key is stored separately from the database.</li>
-    <li>Backend sessions are signed with HMAC and short-lived; revoked sessions are blacklisted.</li>
-    <li>The Flexa backend cannot read or modify another user&rsquo;s data &mdash; each request is authenticated and scoped.</li>
-    <li>We follow reasonable industry security practices, but no system is perfectly secure. If we become aware of a breach affecting your data, we will notify you within the timeframe required by applicable law.</li>
-  </ul>
+  <h2>Links to Other Sites</h2>
 
-  <h2>Data retention</h2>
-  <ul>
-    <li><strong>Account and Amazon credentials</strong> &mdash; retained while your account exists.</li>
-    <li><strong>Search session records</strong> &mdash; retained for up to <strong>180 days</strong>, then deleted.</li>
-    <li><strong>Accepted block records</strong> &mdash; retained while your account exists so you can view earnings history; deleted on account deletion.</li>
-    <li><strong>Activity log entries</strong> &mdash; rolling buffer of the most recent events (~50 entries per session); older entries are continuously discarded.</li>
-    <li><strong>Diagnostic captures</strong> &mdash; retained up to <strong>90 days</strong> for debugging, then deleted.</li>
-    <li><strong>Subscription records</strong> &mdash; retained for the period required by tax and accounting regulations.</li>
-  </ul>
+  <p>This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
 
-  <h2>Your rights</h2>
-  <p>You can:</p>
-  <ul>
-    <li><strong>Access</strong> the data we hold about you &mdash; email <a href="mailto:support@flexa.app">support@flexa.app</a>.</li>
-    <li><strong>Correct</strong> inaccurate data &mdash; email <a href="mailto:support@flexa.app">support@flexa.app</a>.</li>
-    <li><strong>Delete</strong> your account and associated data &mdash; see the <strong>Account Deletion</strong> section below.</li>
-    <li><strong>Disconnect your Amazon account</strong> &mdash; in-app via Settings, which removes the stored Amazon credentials immediately without deleting your Flexa account itself.</li>
-    <li><strong>Export</strong> the data we hold about you &mdash; email <a href="mailto:support@flexa.app">support@flexa.app</a>.</li>
-  </ul>
-  <p>If you are in the European Economic Area, the United Kingdom, California, or another jurisdiction with statutory privacy rights, you also have the rights conferred by the applicable law (including the right to object to processing and to lodge a complaint with your data protection authority).</p>
+  <h2>Children's Privacy</h2>
 
-  <h2>Account deletion</h2>
-  <p>You have the right to request deletion of your Flexa account and all personal data associated with it at any time. We do not currently offer in-app account deletion; deletion is handled by emailing our support address.</p>
+  <p>These Services do not address anyone under the age of 18. We do not knowingly collect personally identifiable information from children under 18. In the case we discover that a child under 18 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.</p>
 
-  <p><strong>To request deletion:</strong></p>
-  <ol>
-    <li>Send an email to <a href="mailto:support@flexa.app">support@flexa.app</a> from the Google account you use to sign in to Flexa.</li>
-    <li>Use the subject line <strong>&ldquo;Account Deletion Request&rdquo;</strong>.</li>
-    <li>Include the Google account email you sign in with so we can verify your identity. No other information is required.</li>
-  </ol>
+  <h2>Account Deletion</h2>
 
-  <p><strong>What gets deleted:</strong></p>
-  <ul>
-    <li>Your Flexa user record (email, install UUID, app version, sign-in timestamps)</li>
-    <li>Your encrypted Amazon credentials (refresh token, cookies, account identifier, region)</li>
-    <li>Your search session history and activity log</li>
-    <li>Your accepted block history</li>
-    <li>Your filter presets, warehouse preferences, and notification settings</li>
-    <li>Your subscription state, purchase tokens, and trial history</li>
-    <li>Your diagnostic captures</li>
-  </ul>
+  <p>You may request deletion of your Flexa account and all personal data associated with it at any time by emailing <a href="mailto:support@flexa.app">support@flexa.app</a> from the Google account you use to sign in, with the subject line &ldquo;Account Deletion Request&rdquo;. We action verified deletion requests within 30 days and email you a confirmation when complete. Cancelling your Google Play subscription is a separate action from account deletion.</p>
 
-  <p><strong>Timeline:</strong> we action verified deletion requests within <strong>30 days</strong> of receipt and email you a confirmation when complete.</p>
+  <h2>Changes to This Privacy Policy</h2>
 
-  <p><strong>What we may retain:</strong> a minimal record of the deletion request itself (email, request date, deletion date) for fraud-prevention, tax, and legal-compliance purposes. This retained record contains no in-app activity data and is kept only as long as required by law.</p>
+  <p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
 
-  <p>Cancelling your Google Play subscription is a separate action from account deletion &mdash; you can cancel via Google Play &rarr; Subscriptions &rarr; Flexa at any time, with or without requesting deletion. Disconnecting your Amazon Flex account from within Flexa Settings is also separate &mdash; that removes Amazon credentials but keeps your Flexa account.</p>
+  <h2>Contact Us</h2>
 
-  <h2>Children</h2>
-  <p>Flexa is not directed to and not for use by anyone under 18. We do not knowingly collect data from children. If you believe a child has provided us with personal information, contact <a href="mailto:support@flexa.app">support@flexa.app</a> and we will delete it.</p>
-
-  <h2>International transfers</h2>
-  <p>Our backend infrastructure and third-party processors may be located outside your country of residence. Where required by law, we rely on appropriate transfer mechanisms (such as standard contractual clauses) for cross-border data transfers.</p>
-
-  <h2>Changes to this policy</h2>
-  <p>We may update this policy. The <strong>Effective date</strong> at the top reflects the most recent version. Material changes will be announced in-app and via email where reasonable.</p>
-
-  <h2>Contact</h2>
-  <p>Questions, data requests, or privacy concerns: <a href="mailto:support@flexa.app">support@flexa.app</a></p>
+  <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at <a href="mailto:support@flexa.app">support@flexa.app</a>.</p>
 
   <footer>
-    <p>Flexa &middot; <code>com.flexa.app</code> &middot; Smartpace Technologies</p>
+    <p>&copy; Flexa by Smartpace Technologies, 2026. All Rights Reserved.</p>
   </footer>
 </main>
 </body>
